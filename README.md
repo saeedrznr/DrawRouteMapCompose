@@ -14,9 +14,14 @@ allprojects {
 }
 Add dependencies :
 
+<!--START_SECTION:Code-->
+```text
 dependencies {
     implementation 'com.github.saeedrznr:DrawRouteMapCompose:latest-version'
 }
+```
+<!--END_SECTION:Code-->
+
 # In Your Composable
 
 <!--START_SECTION:Code-->
