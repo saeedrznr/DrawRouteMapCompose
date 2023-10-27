@@ -9,7 +9,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.GoogleMap
-import com.starcoder.drawroutecompose.route.DrawRoutes
+import com.starcoder.drawroutecompose.DrawRoutes
 import com.starcoder.drawrouteonmap.ui.theme.DrawRouteOnMapTheme
 
 class MainActivity : ComponentActivity() {

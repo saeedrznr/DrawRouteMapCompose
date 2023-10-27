@@ -1,7 +1,6 @@
-package com.starcoder.drawroutecompose.route
+package com.starcoder.drawroutecompose
 
 import com.google.android.gms.maps.model.LatLng
-import com.starcoder.drawroutecompose.model.Route
 
 class FetchRoutes {
     fun getRoutes(routesResponse:List<Route>):List<List<LatLng>>{

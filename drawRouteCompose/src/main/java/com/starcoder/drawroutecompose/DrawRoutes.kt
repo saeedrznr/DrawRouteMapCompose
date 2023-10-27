@@ -1,4 +1,4 @@
-package com.starcoder.drawroutecompose.route
+package com.starcoder.drawroutecompose
 
 
 import androidx.compose.runtime.Composable

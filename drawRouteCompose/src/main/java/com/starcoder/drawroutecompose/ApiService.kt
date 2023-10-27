@@ -1,8 +1,7 @@
-package com.starcoder.drawroutecompose.route
+package com.starcoder.drawroutecompose
 
 import android.util.Log
 import com.google.android.gms.maps.model.LatLng
-import com.starcoder.drawroutecompose.model.RouteResponse
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async

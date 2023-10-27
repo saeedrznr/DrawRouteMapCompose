@@ -21,4 +21,4 @@
 #-renamesourcefileattribute SourceFile
  -keep,allowobfuscation,allowshrinking class retrofit2.Response
  -keep,allowobfuscation,allowshrinking class kotlin.coroutines.Continuation
--keep class com.starcoder.drawroutecompose.model.*{*;}
+-keep class com.starcoder.drawroutecompose.*{*;}
