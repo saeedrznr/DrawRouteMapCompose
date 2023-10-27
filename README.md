@@ -7,11 +7,16 @@ Make sure your app have allready enable Google Map API and Google Direction API.
 
 Add support jitpact repository in root build.gradle at the end of repositories:
 
+<!--START_SECTION:Code-->
+```text
 allprojects {
    repositories {
 	maven { url "https://jitpack.io" }
    }
 }
+```
+<!--END_SECTION:Code-->
+
 Add dependencies :
 
 <!--START_SECTION:Code-->
