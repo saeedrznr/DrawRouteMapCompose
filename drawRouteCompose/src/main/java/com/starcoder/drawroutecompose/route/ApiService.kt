@@ -1,4 +1,4 @@
-package com.starcoder.drawroutecompose
+package com.starcoder.drawroutecompose.route
 
 import android.util.Log
 import com.google.android.gms.maps.model.LatLng

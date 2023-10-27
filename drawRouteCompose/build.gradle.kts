@@ -83,7 +83,7 @@ publishing {
         register<MavenPublication>("release") {
             groupId = "com.github.saeedrznr"
             artifactId = "DrawRouteOnMap"
-            version = "0.0.0"
+            version = "0.0.1"
 
             afterEvaluate {
                 from(components["release"])

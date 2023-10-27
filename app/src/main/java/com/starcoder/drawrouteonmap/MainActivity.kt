@@ -7,10 +7,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.modifier.modifierLocalConsumer
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.GoogleMap
-import com.starcoder.drawroutecompose.DrawRoutes
+import com.starcoder.drawroutecompose.route.DrawRoutes
 import com.starcoder.drawrouteonmap.ui.theme.DrawRouteOnMapTheme
 
 class MainActivity : ComponentActivity() {
