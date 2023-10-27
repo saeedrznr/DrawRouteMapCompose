@@ -41,7 +41,7 @@ class MainActivity : ComponentActivity() {
                         uiSettings = MapUiSettings(zoomControlsEnabled = false)
                     ) {
                         DrawRoutes(
-                            key = "AIzaSyA54PCVtVutIsXptxOrKuWJIEnWgJX9TFQ",
+                            key = "API_KEY",
                             origin = origin,
                             destination = destination,
                             originMarker = true,
