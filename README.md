@@ -19,6 +19,8 @@ dependencies {
 }
 # In Your Composable
 
+<!--START_SECTION:Code-->
+```text
    GoogleMap(modifier=Modifier.fillMaxSize()) {
                        DrawRoutes(
                            key = "API_KEY",
@@ -28,3 +30,6 @@ dependencies {
                            destinationMarker = true
                        )
                    }
+```
+<!--END_SECTION:Code-->
+
