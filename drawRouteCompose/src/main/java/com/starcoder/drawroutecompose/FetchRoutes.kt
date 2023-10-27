@@ -1,15 +1,16 @@
 package com.starcoder.drawroutecompose
 
 import com.google.android.gms.maps.model.LatLng
+import com.google.gson.JsonArray
 
 class FetchRoutes {
-    fun getRoutes(routesResponse:List<Route>):List<List<LatLng>>{
+    fun getRoutes(routesJson:JsonArray):List<List<LatLng>>{
         val routes = mutableListOf<List<LatLng>>()
-        routesResponse.forEach{
+        routesJson.forEach{
             val route = mutableListOf<LatLng>()
-            it.legs.forEach{
-                it.steps.forEach{
-                    route.addAll(decodePoly(it.polyline.points))
+            it.asJsonObject.getAsJsonArray("legs").forEach{
+                it.asJsonObject.getAsJsonArray("steps").forEach{
+                    route.addAll(decodePoly( it.asJsonObject.getAsJsonObject("polyline").get("points").asString))
                 }
             }
             routes.add(route)

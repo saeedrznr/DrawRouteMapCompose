@@ -7,8 +7,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.GoogleMap
+import com.google.maps.android.compose.MapUiSettings
+import com.google.maps.android.compose.rememberCameraPositionState
 import com.starcoder.drawroutecompose.DrawRoutes
 import com.starcoder.drawrouteonmap.ui.theme.DrawRouteOnMapTheme
 
@@ -22,15 +25,29 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                   GoogleMap(modifier=Modifier.fillMaxSize()) {
-                       DrawRoutes(
-                           key = "API_KEY",
-                           origin = LatLng(23.173093, -102.868270),
-                           destination = LatLng(60.005543, -111.884948),
-                           originMarker = true,
-                           destinationMarker = true
-                       )
-                   }
+                    val origin = LatLng(23.173093, -102.868270)
+                    val destination = LatLng(29.943059, -90.095501)
+                    val cameraPosition = rememberCameraPositionState {
+                        position = CameraPosition.fromLatLngZoom(
+                            LatLng(
+                                (origin.latitude + destination.latitude) / 2,
+                                (origin.longitude + destination.longitude) / 2
+                            ), 4f
+                        )
+                    }
+                    GoogleMap(
+                        modifier = Modifier.fillMaxSize(),
+                        cameraPositionState = cameraPosition,
+                        uiSettings = MapUiSettings(zoomControlsEnabled = false)
+                    ) {
+                        DrawRoutes(
+                            key = "AIzaSyA54PCVtVutIsXptxOrKuWJIEnWgJX9TFQ",
+                            origin = origin,
+                            destination = destination,
+                            originMarker = true,
+                            destinationMarker = true
+                        )
+                    }
                 }
             }
         }

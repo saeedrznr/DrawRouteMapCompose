@@ -3,10 +3,9 @@ package com.starcoder.drawroutecompose
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.graphics.Color
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.ButtCap
 import com.google.android.gms.maps.model.Cap
@@ -32,26 +31,22 @@ fun DrawRoutes(
     width: Float = 10f,
     zIndex: Float = 0f,
     onClick: (Polyline) -> Unit = {},
-    originMarker:Boolean=false,
-    destinationMarker:Boolean=false,
-    originTitle:String="",
-    destinationTitle:String="",
-    originSnippet:String?=null,
-    destinationSnippet:String?=null
+    originMarker: Boolean = false,
+    destinationMarker: Boolean = false,
+    originTitle: String = "",
+    destinationTitle: String = "",
+    originSnippet: String? = null,
+    destinationSnippet: String? = null
 ) {
-    val routesColors = colors ?: listOf(Color.Red, Color.Cyan, Color.Green, Color.Magenta)
-    val apiService = ApiService()
-    var routes: List<List<LatLng>> by remember {
-        mutableStateOf(listOf())
-    }
-    apiService.getRoutes(key, origin, destination) {
-        routes = it
-    }
+    val routesColors = colors ?: listOf(Color.Blue, Color.Red, Color.Green, Color.Magenta)
+    val apiService: ApiService = viewModel()
+    val routes by apiService.routes.observeAsState()
+    apiService.getRoutes(key, origin, destination)
     val desMarkerState = rememberMarkerState(position = destination)
     val begMarkerState = rememberMarkerState(position = origin)
     desMarkerState.showInfoWindow()
     begMarkerState.showInfoWindow()
-    if (originMarker){
+    if (originMarker) {
         Marker(
             state = begMarkerState,
             title = originTitle,
@@ -63,7 +58,7 @@ fun DrawRoutes(
             snippet = originSnippet
         )
     }
-    if(destinationMarker){
+    if (destinationMarker) {
         Marker(
             state = desMarkerState,
             title = destinationTitle,
@@ -76,11 +71,11 @@ fun DrawRoutes(
         )
     }
 
-    if (routes.isNotEmpty()) {
-        routes.indices.forEach {
+    if (routes != null) {
+        routes!!.indices.forEach {
             Polyline(
-                points = routes[it],
-                color = routesColors[it%routesColors.size],
+                points = routes!![it],
+                color = routesColors[it % routesColors.size],
                 clickable = clickable, endCap = endCap,
                 geodesic = geodesic,
                 jointType = jointType,

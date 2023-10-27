@@ -68,11 +68,10 @@ dependencies {
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
 
-    implementation("androidx.lifecycle:lifecycle-livedata:2.6.2")
 
-
-    implementation ("com.squareup.retrofit2:retrofit:2.7.2")
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.7.2")
+
 
     implementation("com.google.maps.android:maps-compose:2.15.0")
     implementation("com.google.android.gms:play-services-maps:18.2.0")
@@ -83,7 +82,7 @@ publishing {
         register<MavenPublication>("release") {
             groupId = "com.github.saeedrznr"
             artifactId = "DrawRouteOnMap"
-            version = "0.0.2"
+            version = "0.0.3"
 
             afterEvaluate {
                 from(components["release"])
