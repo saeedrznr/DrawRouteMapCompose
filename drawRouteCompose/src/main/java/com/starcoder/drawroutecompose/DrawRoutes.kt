@@ -36,12 +36,13 @@ fun DrawRoutes(
     originTitle: String = "",
     destinationTitle: String = "",
     originSnippet: String? = null,
-    destinationSnippet: String? = null
+    destinationSnippet: String? = null,
+    alternatives:Boolean=false
 ) {
     val routesColors = colors ?: listOf(Color.Blue, Color.Red, Color.Green, Color.Magenta)
     val apiService: ApiService = viewModel()
     val routes by apiService.routes.observeAsState()
-    apiService.getRoutes(key, origin, destination)
+    apiService.getRoutes(key, origin, destination,alternatives)
     val desMarkerState = rememberMarkerState(position = destination)
     val begMarkerState = rememberMarkerState(position = origin)
     desMarkerState.showInfoWindow()

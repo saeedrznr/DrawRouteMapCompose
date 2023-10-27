@@ -23,14 +23,14 @@ class ApiService : ViewModel() {
     val routes: LiveData<List<List<LatLng>>>
         get() = _routes
 
-    fun getRoutes(key: String, origin: LatLng, destination: LatLng) {
+    fun getRoutes(key: String, origin: LatLng, destination: LatLng,alternatives: Boolean) {
         val TAG = "drawgooglemaproute-request_response:"
         viewModelScope.launch {
             try {
                 val request = Api.invoke().getRoute(
                     "${origin.latitude},${origin.longitude}",
                     "${destination.latitude},${destination.longitude}",
-                    key
+                    key,alternatives
                 )
                 val data = CoroutineScope(Dispatchers.IO).async {
                     if (request.isSuccessful) {
@@ -63,14 +63,14 @@ class ApiService : ViewModel() {
         suspend fun getRoute(
             @Query("origin") origin: String,
             @Query("destination") destination: String,
-            @Query("key") key: String
+            @Query("key") key: String,
+            @Query("alternatives") alternatives:Boolean
         ): Response<ResponseBody>
 
         companion object {
             private val retrofit by lazy {
                 Retrofit.Builder()
                     .baseUrl("https://maps.googleapis.com/maps/api/directions/")
-                    //.addConverterFactory(MoshiConverterFactory.create())
                     .build()
             }
 
