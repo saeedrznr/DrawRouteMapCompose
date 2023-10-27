@@ -22,7 +22,9 @@ Add dependencies :
 <!--START_SECTION:Code-->
 ```text
 dependencies {
-    implementation 'com.github.saeedrznr:DrawRouteMapCompose:latest-version'
+    implementation("com.google.maps.android:maps-compose:2.15.0")
+    implementation("com.google.android.gms:play-services-maps:18.2.0")
+    implementation ("com.github.saeedrznr:DrawRouteMapCompose:0.0.2")
 }
 ```
 <!--END_SECTION:Code-->
