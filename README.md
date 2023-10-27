@@ -1,6 +1,6 @@
 # DrawRouteMapCompose
 
-<img width=25px src="https://github.com/saeedrznr/DrawRouteMapCompose/blob/master/app/src/main/res/drawable/example_img.jpg">
+<img width=100px height=250px src="https://github.com/saeedrznr/DrawRouteMapCompose/blob/master/app/src/main/res/drawable/example_img.jpg">
 
 # Usage
 Make sure your app have allready enable Google Map API and Google Direction API. Then you can use this library and follow this task to integrate DrawRouteMaps into your project.
